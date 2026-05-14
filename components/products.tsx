@@ -9,7 +9,7 @@ import { products, Product } from "@/data/products";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { SaleBadge } from "@/components/sale-badge";
 
-const categories = ["Mates", "Bombillas", "Materas", "Vasos", "Termos", "Yerberas"];
+const categories = ["Mates", "Bombillas", "Materas", "Vasos", "Termos", "Yerberas", "Accesorios"];
 
 export function Products() {
   const [activeCategory, setActiveCategory] = useState("Mates");
@@ -28,6 +28,17 @@ export function Products() {
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, []);
+
+  useEffect(() => {
+  const handler = (e: Event) => {
+    const cat = (e as CustomEvent<string>).detail;
+    setActiveCategory(cat);
+    setCurrentIndex(0); // 👈 importante para resetear el scroll
+  };
+
+  window.addEventListener("setProductCategory", handler);
+  return () => window.removeEventListener("setProductCategory", handler);
+}, []);
 
   const filtered = products.filter(p => p.category === activeCategory);
   const visible = filtered.slice(currentIndex, currentIndex + itemsPerView);
