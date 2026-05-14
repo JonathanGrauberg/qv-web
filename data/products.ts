@@ -6,6 +6,9 @@ export type Product = {
   image: string;
   options: string[];
   featured?: boolean;
+  outOfStock?: boolean;
+  discount?: number; // porcentaje
+  sale?: boolean; 
 };
 
 export const products: Product[] = [
@@ -14,9 +17,10 @@ export const products: Product[] = [
     id: 1,
     name: "Mate Camionero Cincelado",
     category: "Mates",
-    price: 23000,
+    price: 25000,
     image: "/images/mates/camionero-repujado.png",
     options: ["Repujado", "Marron/Negro"],
+    discount: 20,
   },
   {
     id: 2,
@@ -31,7 +35,7 @@ export const products: Product[] = [
     id: 3,
     name: "Mate Imperial Cincelado",
     category: "Mates",
-    price: 30000,
+    price: 34000,
     image: "/images/mates/imperial-cincelado.png",
     options: ["Marron/Negro", "Cincelado", "Alpaca y Acero"],
     featured: true,
@@ -61,6 +65,80 @@ export const products: Product[] = [
     options: ["Acero", "Negro/Marron"],
     featured: true,
   },
+  {
+    id: 13,
+    name: "Mate Vaqueta",
+    category: "Mates",
+    price: 14000,
+    image: "/images/mates/vaqueta.png",
+    options: ["Cuero y Acero"],
+  },
+  {
+    id: 14,
+    name: "Mate Criollo Virola",
+    category: "Mates",
+    price: 12000,
+    image: "/images/mates/criollo-virola.png",
+    options: ["Virola y Base"],
+  },
+  {
+    id: 15,
+    name: "Mate Criollo Cuero Crudo",
+    category: "Mates",
+    price: 14000,
+    image: "/images/mates/criollo-crudo.png",
+    options: ["Cuero Crudo"],
+  },
+  {
+    id: 16,
+    name: "Mate Algarrobo Camionero",
+    category: "Mates",
+    price: 13000,
+    image: "/images/mates/algarrobo-camionero.png",
+    options: ["Algarrobo"],
+  },
+  {
+    id: 17,
+    name: "Mate Algarrobo Alpaca",
+    category: "Mates",
+    price: 21000,
+    image: "/images/mates/algarrobo-alpaca.png",
+    options: ["Alpaca y Acero"],
+  },
+  {
+    id: 18,
+    name: "Mate Imperial Liso",
+    category: "Mates",
+    price: 24000,
+    image: "/images/mates/imperial-liso.png",
+    options: ["Liso con Aplique"],
+  },
+  {
+    id: 19,
+    name: "Mate Imperial Premium",
+    category: "Mates",
+    price: 43000,
+    image: "/images/mates/imperial-premium.png",
+    options: ["Alpaca Base Bolita"],
+    featured: true,
+  },
+  {
+    id: 20,
+    name: "Mate Algarrobo Cruz",
+    category: "Mates",
+    price: 36000,
+    image: "/images/mates/algarrobo-cruz.png",
+    options: ["Artesanal"],
+  },
+  {
+    id: 21,
+    name: "Mate Porito",
+    category: "Mates",
+    price: 15000,
+    image: "/images/mates/porito.png",
+    options: ["Clásico"],
+    outOfStock: true,
+  },
 
   // 🧉 BOMBILLAS
   {
@@ -71,16 +149,24 @@ export const products: Product[] = [
     image: "/images/bombillas/b-alpaca-acero.png",
     options: ["Larga/Corta", "Alpaca y Acero"],
   },
+  {
+    id: 22,
+    name: "Bombilla Chata",
+    category: "Bombillas",
+    price: 3000,
+    image: "/images/bombillas/chata.png",
+    options: ["Acero"],
+  },
+  {
+    id: 23,
+    name: "Bombilla Pico de Loro Bronce",
+    category: "Bombillas",
+    price: 5000,
+    image: "/images/bombillas/pico-loro-bronce.png",
+    options: ["Bronce"],
+  },
 
   // 🎒 MATERAS
-  {
-    id: 8,
-    name: "Matera de Mano Eco",
-    category: "Materas",
-    price: 14000,
-    image: "/images/materas/cuadrada-simil.png",
-    options: ["Simil Cuero"],
-  },
   {
     id: 9,
     name: "Porta Mate Auto",
@@ -88,6 +174,40 @@ export const products: Product[] = [
     price: 15000,
     image: "/images/materas/porta-mate-cuero.png",
     options: ["100% Cuero", "Negro/Marron"],
+    discount: 20,
+  },
+  {
+    id: 24,
+    name: "Matera de Mano Cuero Premium",
+    category: "Materas",
+    price: 60000,
+    image: "/images/materas/cuero-premium.png",
+    options: ["100% Cuero"],
+  },
+  {
+    id: 25,
+    name: "Matera de Mano Reforzada",
+    category: "Materas",
+    price: 16000,
+    image: "/images/materas/simil-reforzada.png",
+    options: ["Simil Reforzada"],
+  },
+  {
+    id: 26,
+    name: "Matera de Mano Simple",
+    category: "Materas",
+    price: 14000,
+    image: "/images/materas/simil-simple.png",
+    options: ["Simil Simple"],
+  },
+  {
+    id: 8,
+    name: "Matera de Mano Eco",
+    category: "Materas",
+    price: 14000,
+    image: "/images/materas/cuadrada-simil.png",
+    options: ["Simil Cuero"],
+    outOfStock: true,
   },
 
   // 🥤 VASOS
@@ -103,9 +223,10 @@ export const products: Product[] = [
     id: 11,
     name: "Vaso Cafetero",
     category: "Vasos",
-    price: 21000,
+    price: 20000,
     image: "/images/vasos/vaso-cafe.png",
     options: ["Negro/Blanco"],
+    sale: true,
   },
 
   // 🧊 TERMOS
@@ -116,5 +237,31 @@ export const products: Product[] = [
     price: 27000,
     image: "/images/termos/termo-bigstar.png",
     options: ["Negro/Plateado"],
+  },
+
+  // 🌿 YERBERAS
+  {
+    id: 27,
+    name: "Yerbera de Cuero",
+    category: "Yerberas",
+    price: 14000,
+    image: "/images/yerberas/yerbera-cuero.png",
+    options: ["Cuero"],
+  },
+  {
+    id: 28,
+    name: "Yerbera Lata",
+    category: "Yerberas",
+    price: 7000,
+    image: "/images/yerberas/lata.png",
+    options: ["Metal"],
+  },
+  {
+    id: 29,
+    name: "Yerbera Lata",
+    category: "Yerberas",
+    price: 7000,
+    image: "/images/yerberas/lata-2.png",
+    options: ["Metal"],
   },
 ];

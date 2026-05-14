@@ -19,7 +19,7 @@ const initialProducts = [
   {
     id: 2,
     name: "Porta Mate 100% Cuero",
-    price: "$14.000",
+    price: "$12.000",
     description:
       "Confeccionada con cuero vacuno de primera selección. Diseñada para durar toda la vida.",
     image: "/images/matera-hero.png",
