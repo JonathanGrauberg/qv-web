@@ -256,7 +256,7 @@ export const products: Product[] = [
     name: "Yerbera de Cuero",
     category: "Yerberas",
     price: 14000,
-    image: "/images/yerberas/yerbera-cuero.png",
+    image: "/images/yerberas/Yerbera-cuero.png",
     options: ["Cuero"],
   },
   {
@@ -264,7 +264,7 @@ export const products: Product[] = [
     name: "Yerbera Lata",
     category: "Yerberas",
     price: 7000,
-    image: "/images/yerberas/lata.png",
+    image: "/images/Yerberas/lata.png",
     options: ["Metal"],
   },
   {
@@ -272,7 +272,7 @@ export const products: Product[] = [
     name: "Yerbera Lata",
     category: "Yerberas",
     price: 8000,
-    image: "/images/yerberas/lata-2.png",
+    image: "/images/Yerberas/lata-2.png",
     options: ["Metal"],
     sale: true,
     discount: 11,
@@ -281,11 +281,11 @@ export const products: Product[] = [
   // Accesorios
   {
     id: 27,
-    name: "Yerbera de Cuero",
+    name: "Pava Plegable",
     category: "Accesorios",
     price: 14000,
     image: "/images/Accesorios/pava-plegable.jpeg",
-    options: ["Cuero"],
+    options: ["Plegable", "Hasta 0.6L"],
   },
   
 ];

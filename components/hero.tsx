@@ -15,6 +15,7 @@ const initialProducts = [
       "Es un ícono de la orfebrería Argentina, destacando por su forma robusta, interior de calabaza natural y forro de cuero vacuno premium.",
     image: "/images/Mate-hero.png",
     thumb: "/images/mate-1.jpg",
+    
   },
   {
     id: 2,
