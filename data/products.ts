@@ -256,7 +256,7 @@ export const products: Product[] = [
     name: "Yerbera de Cuero",
     category: "Yerberas",
     price: 14000,
-    image: "/images/yerberas/Yerbera-cuero.png",
+    image: "/images/Yerberas/Yerbera-cuero.png",
     options: ["Cuero"],
   },
   {
