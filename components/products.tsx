@@ -10,7 +10,7 @@ import { SaleBadge } from "@/components/sale-badge";
 const categories = ["MUNDIALERA", "Mates", "Bombillas", "Materas", "Vasos", "Termos", "Yerberas", "Accesorios"];
 
 export function Products() {
-  const [activeCategory, setActiveCategory] = useState("Mates");
+  const [activeCategory, setActiveCategory] = useState("MUNDIALERA");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(4);
 
