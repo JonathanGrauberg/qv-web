@@ -9,7 +9,7 @@ import { products, Product } from "@/data/products";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { SaleBadge } from "@/components/sale-badge";
 
-const categories = ["Mates", "Bombillas", "Materas", "Vasos", "Termos", "Yerberas", "Accesorios"];
+const categories = ["MUNDIALERA", "Mates", "Bombillas", "Materas", "Vasos", "Termos", "Yerberas", "Accesorios"];
 
 export function Products() {
   const [activeCategory, setActiveCategory] = useState("Mates");

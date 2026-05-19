@@ -9,6 +9,14 @@ import { ArrowRight, Star } from "lucide-react";
 const initialProducts = [
   {
     id: 1,
+    name: "EDICION MUNDIALERA!",
+    description:
+      "Edición limitada mundialera 🇦🇷 El combo perfecto para vivir cada partido con el mejor mate.",
+    image: "/images/edicion-mundial.png",
+    thumb: "/images/mate-2.jpg",
+  },
+  {
+    id: 2,
     name: "Torpedo Alpaca Cincelada",
     price: "$34.000",
     description:
@@ -16,15 +24,6 @@ const initialProducts = [
     image: "/images/Mate-hero.png",
     thumb: "/images/mate-1.jpg",
     
-  },
-  {
-    id: 2,
-    name: "Porta Mate 100% Cuero",
-    price: "$12.000",
-    description:
-      "Confeccionada con cuero vacuno de primera selección. Diseñada para durar toda la vida.",
-    image: "/images/matera-hero.png",
-    thumb: "/images/mate-2.jpg",
   },
   {
     id: 3,
@@ -125,10 +124,7 @@ export function Hero() {
                   </span>
                 </div>
 
-                <Button className="group w-full rounded-full bg-verde-claro text-beige hover:bg-verde-oscuro sm:w-auto">
-                  Agregar al carrito
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
+                
               </motion.div>
             </AnimatePresence>
 

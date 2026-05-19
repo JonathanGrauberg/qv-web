@@ -280,12 +280,34 @@ export const products: Product[] = [
 
   // Accesorios
   {
-    id: 27,
+    id: 30,
     name: "Pava Plegable",
     category: "Accesorios",
     price: 25000,
     image: "/images/Accesorios/pava-plegable.jpeg",
     options: ["Plegable", "Hasta 0.6L"],
+  },
+
+  //MUNDIALERA
+  {
+    id: 31,
+    name: "Yerbera Lata",
+    category: "MUNDIALERA",
+    price: 54444,
+    image: "/images/MUNDIALERA/mate-mundial.png",
+    options: ["Imperial"],
+    sale: true,
+    discount: 10,
+  },
+  {
+    id: 32,
+    name: "Yerbera Lata",
+    category: "MUNDIALERA",
+    price: 22222,
+    image: "/images/MUNDIALERA/matera-mundial.png",
+    options: ["simil"],
+    sale: true,
+    discount: 10,
   },
   
 ];
