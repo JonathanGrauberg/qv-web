@@ -291,7 +291,7 @@ export const products: Product[] = [
   //MUNDIALERA
   {
     id: 31,
-    name: "Yerbera Lata",
+    name: "MATE MUNDIALERO",
     category: "MUNDIALERA",
     price: 54444,
     image: "/images/MUNDIALERA/mate-mundial.png",
@@ -301,9 +301,9 @@ export const products: Product[] = [
   },
   {
     id: 32,
-    name: "Yerbera Lata",
+    name: "MATERA MUNDIALERA",
     category: "MUNDIALERA",
-    price: 22222,
+    price: 21222,
     image: "/images/MUNDIALERA/matera-mundial.png",
     options: ["simil"],
     sale: true,

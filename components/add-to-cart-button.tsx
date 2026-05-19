@@ -1,12 +1,10 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingCart, Check, Minus } from "lucide-react";
 import { useCart } from "@/hooks/useCart";
 import { Product } from "@/hooks/useCart";
-
-
 
 type Props = {
   product: Product;
@@ -19,13 +17,63 @@ export function AddToCartButton({ product }: Props) {
     "idle" | "adding" | "added" | "removing" | "removed"
   >("idle");
 
+  const confettiRef = useRef<HTMLDivElement>(null);
+
   const isInCart = cart.some((item: any) => item.id === product.id);
+
+  // 🎉 CONFETTI
+  const triggerConfetti = () => {
+    const el = confettiRef.current;
+    if (!el) return;
+
+    const colors = ["#74ACDF", "#FFFFFF", "#FFD700"];
+
+    for (let i = 0; i < 12; i++) {
+      const piece = document.createElement("span");
+
+      piece.style.position = "absolute";
+      piece.style.width = "6px";
+      piece.style.height = "6px";
+      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+      piece.style.left = "50%";
+      piece.style.top = "50%";
+      piece.style.borderRadius = "2px";
+      piece.style.pointerEvents = "none";
+
+      const angle = Math.random() * 2 * Math.PI;
+      const distance = 40 + Math.random() * 40;
+
+      piece.animate(
+        [
+          { transform: "translate(-50%, -50%) scale(1)", opacity: 1 },
+          {
+            transform: `translate(${Math.cos(angle) * distance}px, ${
+              Math.sin(angle) * distance
+            }px) scale(0.5)`,
+            opacity: 0,
+          },
+        ],
+        {
+          duration: 700,
+          easing: "ease-out",
+        }
+      );
+
+      el.appendChild(piece);
+
+      setTimeout(() => {
+        piece.remove();
+      }, 700);
+    }
+  };
 
   const handleAdd = useCallback(() => {
     if (state !== "idle") return;
 
     addToCart(product);
     setState("adding");
+
+    triggerConfetti(); // 💥 agregado sin romper nada
 
     setTimeout(() => setState("added"), 700);
     setTimeout(() => setState("idle"), 2200);
@@ -44,7 +92,14 @@ export function AddToCartButton({ product }: Props) {
   const isAnimating = state !== "idle";
 
   return (
-    <div className="w-full max-w-[140px] sm:max-w-[160px] mx-auto">
+    <div className="w-full max-w-[140px] sm:max-w-[160px] mx-auto relative">
+
+      {/* 🎉 CONTENEDOR CONFETTI */}
+      <div
+        ref={confettiRef}
+        className="pointer-events-none absolute inset-0 z-30"
+      />
+
       <motion.button
         onClick={isInCart && state === "idle" ? handleRemove : handleAdd}
         disabled={isAnimating}
@@ -84,7 +139,6 @@ export function AddToCartButton({ product }: Props) {
         <div className="relative z-20 flex items-center justify-center h-full text-xs sm:text-sm">
           <AnimatePresence mode="wait">
             
-            {/* AGREGAR */}
             {!isInCart && state === "idle" && (
               <motion.div
                 key="idle-add"
@@ -98,7 +152,6 @@ export function AddToCartButton({ product }: Props) {
               </motion.div>
             )}
 
-            {/* VOLANDO */}
             {state === "adding" && (
               <motion.div key="adding" className="flex items-center justify-center">
                 <motion.div
@@ -111,7 +164,6 @@ export function AddToCartButton({ product }: Props) {
               </motion.div>
             )}
 
-            {/* AGREGADO */}
             {(state === "added" || (isInCart && state === "idle")) && (
               <motion.div
                 key="added"
@@ -128,7 +180,6 @@ export function AddToCartButton({ product }: Props) {
               </motion.div>
             )}
 
-            {/* REMOVING */}
             {state === "removing" && (
               <motion.div key="removing" className="flex items-center justify-center">
                 <motion.div
@@ -141,7 +192,6 @@ export function AddToCartButton({ product }: Props) {
               </motion.div>
             )}
 
-            {/* REMOVED */}
             {state === "removed" && (
               <motion.div
                 key="removed"
