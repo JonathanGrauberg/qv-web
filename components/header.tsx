@@ -7,6 +7,7 @@ import { ShoppingCart, Menu, X, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/useCart";
 import { CartModal } from "@/components/cart-modal";
+import { ConfettiArgentina } from "./confetti-argentina";
 
 const navItems = [
   { label: "Inicio", href: "inicio" },
@@ -67,6 +68,8 @@ export function Header() {
     return () => clearInterval(timer);
   }, []);
 
+  
+
   return (
     <>
       <style>{`
@@ -104,6 +107,7 @@ export function Header() {
       `}</style>
 
       <header className="fixed top-0 left-0 right-0 z-50 px-2 py-4">
+        <ConfettiArgentina />
         <nav className="mx-auto max-w-7xl">
 
           <div className="glass-patrio flex items-center justify-between rounded-full px-3 md:px-6 py-2 shadow-2xl">
