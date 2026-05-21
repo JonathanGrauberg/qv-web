@@ -16,6 +16,7 @@ export type Product = {
 
 export type CartItem = Product & {
   quantity: number;
+  discount?: number;
 };
 
 type CartContextType = {
@@ -69,10 +70,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }
 
   function getTotal() {
-    return cart.reduce(
-      (acc, item) => acc + item.price * item.quantity,
-      0
-    );
+    return cart.reduce((acc, item) => {
+      const finalPrice = item.discount
+        ? item.price - (item.price * item.discount) / 100
+        : item.price;
+      return acc + finalPrice * item.quantity;
+    }, 0);
   }
 
   return (

@@ -24,7 +24,11 @@ export function CartModal({ isOpen, onClose }: Props) {
     let msg = "Hola! Quiero comprar 🧉\n\n";
 
     cart.forEach((item) => {
-      msg += `• ${item.name} x${item.quantity} — $${(item.price * item.quantity).toLocaleString("es-AR")}\n`;
+      const finalPrice = item.discount
+        ? item.price - (item.price * item.discount) / 100
+        : item.price;
+
+      msg += `• ${item.name} x${item.quantity} — $${(finalPrice * item.quantity).toLocaleString("es-AR")}\n`;
     });
 
     msg += `\n-------------------\n`;
@@ -97,7 +101,11 @@ export function CartModal({ isOpen, onClose }: Props) {
                         <p className="text-sm font-medium">{item.name}</p>
                         <p className="text-xs text-muted-foreground">
                           x{item.quantity} — $
-                          {(item.price * item.quantity).toLocaleString("es-AR")}
+                          {(
+                            (item.discount
+                              ? item.price - (item.price * item.discount) / 100
+                              : item.price) * item.quantity
+                          ).toLocaleString("es-AR")}
                         </p>
                       </div>
 
@@ -161,3 +169,4 @@ export function CartModal({ isOpen, onClose }: Props) {
     </AnimatePresence>
   );
 }
+
