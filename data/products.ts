@@ -88,6 +88,15 @@ export const products: Product[] = [
     discount: 20,
   },
   {
+    id: 36,
+    name: "Mate Porito Pata Larga",
+    category: "Mates",
+    price: 30000,
+    image: "/images/mates/porito-pata-larga.png",
+    options: ["Alpaca", "Varios Colores"],
+    featured: true,
+  },
+  {
     id: 15,
     name: "Mate Criollo Cuero Crudo",
     category: "Mates",
@@ -120,6 +129,7 @@ export const products: Product[] = [
     price: 24000,
     image: "/images/mates/imperial-liso.png",
     options: ["Liso con Aplique"],
+    outOfStock: true,
   },
   {
     id: 19,
@@ -149,6 +159,7 @@ export const products: Product[] = [
     options: ["Clásico"],
     outOfStock: true,
   },
+
 
   // 🧉 BOMBILLAS
   {
@@ -279,6 +290,25 @@ export const products: Product[] = [
   },
 
   // Accesorios
+  
+  {
+    id: 34,
+    name: "Almohadon Matero",
+    category: "Accesorios",
+    price: 20000,
+    image: "/images/Accesorios/almohadon-matero.png",
+    options: ["Varios Colores"],
+    featured: true,
+  },
+  {
+    id: 35,
+    name: "Billeteras de Cuero",
+    category: "Accesorios",
+    price: 12000,
+    image: "/images/Accesorios/billetera.png",
+    options: ["Cuero 100%", "Varios Modelos"],
+    featured: true,
+  },
   {
     id: 30,
     name: "Pava Plegable",
@@ -286,6 +316,14 @@ export const products: Product[] = [
     price: 25000,
     image: "/images/Accesorios/pava-plegable.jpeg",
     options: ["Plegable", "Hasta 0.6L"],
+  },
+  {
+    id: 33,
+    name: "Luz Bombillera",
+    category: "Accesorios",
+    price: 6000,
+    image: "/images/Accesorios/luz.png",
+    options: ["Pila Incluida", "Color Negro"],
   },
 
   //MUNDIALERA
