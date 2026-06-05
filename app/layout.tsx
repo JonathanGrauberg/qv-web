@@ -35,6 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark bg-background">
+      <script src="//code.tidio.co/vvk1uvwk5fwgiizhbmt1eclkhxzucww0.js" async></script>
       <body
         className={`${bebasNeue.variable} ${inter.variable} font-sans antialiased`}
       >

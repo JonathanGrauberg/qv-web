@@ -16,8 +16,6 @@ const navItems = [
   { label: "Contacto", href: "contacto" },
 ];
 
-// 🇦🇷 FECHA HOT SALE
-const TARGET_DATE = "2026-05-25T23:59:59-03:00";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,27 +44,6 @@ export function Header() {
 
     window.history.replaceState(null, "", window.location.pathname);
   };
-
-  useEffect(() => {
-    setMounted(true);
-
-    const calculateTime = () => {
-      const difference = +new Date(TARGET_DATE) - +new Date();
-
-      if (difference > 0) {
-        setTimeLeft({
-          d: String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(2, "0"),
-          h: String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(2, "0"),
-          m: String(Math.floor((difference / 1000 / 60) % 60)).padStart(2, "0"),
-          s: String(Math.floor((difference / 1000) % 60)).padStart(2, "0"),
-        });
-      }
-    };
-
-    const timer = setInterval(calculateTime, 1000);
-    calculateTime();
-    return () => clearInterval(timer);
-  }, []);
 
   
 
@@ -123,17 +100,6 @@ export function Header() {
                   className="h-7 md:h-9 w-auto"
                 />
               </button>
-
-              <motion.div
-                animate={{ x: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 2 }}
-                className="hot-sale-container shadow-lg"
-              >
-                <Flame className="w-4 h-4 fill-current" />
-                <span className="text-sm md:text-xl tracking-tighter">
-                  HOT SALE
-                </span>
-              </motion.div>
             </div>
 
             {/* NAV DESKTOP */}
@@ -143,12 +109,12 @@ export function Header() {
                   <button
                     onClick={() => scrollToSection(item.href)}
                     className={`cursor-pointer text-sm font-bold text-blue-900 px-3 py-1 rounded-full 
-relative transition-all duration-200 
-after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 
-after:bg-blue-900 after:transition-all after:duration-300 after:-translate-x-1/2
-hover:after:w-3/4 hover:scale-105 active:scale-95 ${
-  item.highlight ? "animate-titileo" : ""
-}`}
+                  relative transition-all duration-200 
+                  after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 
+                  after:bg-blue-900 after:transition-all after:duration-300 after:-translate-x-1/2
+                  hover:after:w-3/4 hover:scale-105 active:scale-95 ${
+                    item.highlight ? "animate-titileo" : ""
+                  }`}
                   >
                     {item.label}
                   </button>
@@ -158,20 +124,6 @@ hover:after:w-3/4 hover:scale-105 active:scale-95 ${
 
             {/* DERECHA */}
             <div className="flex items-center gap-2 md:gap-4">
-
-              {mounted && (
-                <div className="hidden sm:flex flex-col items-end leading-tight border-r border-blue-300 pr-3">
-                  <span className="text-[9px] font-black text-blue-800 uppercase">
-                    Faltan
-                  </span>
-                  <div className="text-blue-900 font-mono font-black text-sm flex gap-1">
-                    <span>{timeLeft.d}d</span>
-                    <span>{timeLeft.h}h</span>
-                    <span>{timeLeft.m}m</span>
-                    <span className="text-yellow-600">{timeLeft.s}s</span>
-                  </div>
-                </div>
-              )}
 
               <Button
                 variant="ghost"
