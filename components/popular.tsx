@@ -2,34 +2,17 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useCart, Product } from "@/hooks/useCart";
+
+import { products } from "@/data/products";
 import { CartIconButton } from "./CartIconButton";
 
-const popularProducts: Product[] = [
-  {
-    id: 101,
-    name: "Mate Torpedo",
-    price: 34000,
-    image: "/images/Mate-hero.png",
-    category: "Mates",
-  },
-  {
-    id: 102,
-    name: "Mate Imperial",
-    price: 28000,
-    image: "/images/mate-imperial-alpaca-acero.png",
-    category: "Mates",
-  },
-  {
-    id: 103,
-    name: "Porta Mate Auto",
-    price: 12000,
-    image: "/images/matera-hero.png",
-    category: "Materas",
-  },
-];
-
 export function Popular() {
+
+  
+  const popularProducts = products
+  .filter((p) => p.featured)
+  .slice(0, 3); // solo 3 productos
+
   return (
     <section className="py-20">
       <div className="mx-auto max-w-7xl px-4">

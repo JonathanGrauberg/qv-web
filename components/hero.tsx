@@ -8,6 +8,15 @@ import { ArrowRight, Star } from "lucide-react";
 
 const initialProducts = [
   {
+    id: 3,
+    name: "Billeteras de Cuero",
+    price: "$12.000",
+    description:
+      "Cuero 100% auténtico con diseño elegante y funcional.",
+    image: "/images/billetera-padre.png",
+    thumb: "/images/mate-3.jpg",
+  },
+  {
     id: 1,
     name: "EDICION MUNDIALERA!",
     description:
@@ -25,15 +34,7 @@ const initialProducts = [
     thumb: "/images/mate-1.jpg",
     
   },
-  {
-    id: 3,
-    name: "Termo Económico",
-    price: "$27.000",
-    description:
-      "Acero inoxidable de alta resistencia con doble capa térmica.",
-    image: "/images/termo-hero.png",
-    thumb: "/images/mate-3.jpg",
-  },
+  
 ];
 
 // 🔥 helper para rotar tipo “mazo”
@@ -57,13 +58,14 @@ export function Hero() {
     <section className="relative min-h-screen overflow-hidden pt-12">
       
       {/* Background */}
-      <div className="absolute inset-0 opacity-2">
+      <div className="absolute inset-0 opacity-30">
         <div
           className="h-full w-full"
           style={{
             backgroundImage: "url('/images/fondo-logo-claro.png')",
-            backgroundRepeat: "repeat",
-            backgroundSize: "800px",
+            backgroundRepeat: "no repeat",
+            backgroundSize: "1920px",
+            backgroundAttachment: "fixed", // 👈 clave
             maskImage:
               "linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0))",
             WebkitMaskImage:
@@ -83,12 +85,12 @@ export function Hero() {
             className="text-center lg:text-left"
           >
             <p className="mb-2 text-sm font-medium uppercase tracking-widest text-muted-foreground">
-              Donde cada mate cuenta una historia
+              Ya sabés que regalarle a tu viejo para..
             </p>
 
             <h1 className="mb-6 font-display text-5xl leading-tight tracking-tight md:text-7xl lg:text-8xl">
-              <span className="text-foreground">{"¿Cuál es "}</span>
-              <span className="mt-[-10] text-verde-claro">la tuya?</span>
+              <span className="text-foreground">{"El día del "}</span>
+              <span className="mt-[-10] text-verde-oscuro">PADRE</span>
             </h1>
 
             {/* CONTENIDO */}

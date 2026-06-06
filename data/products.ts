@@ -314,7 +314,7 @@ export const products: Product[] = [
     name: "Pava Plegable",
     category: "Accesorios",
     price: 25000,
-    image: "/images/Accesorios/pava-plegable.jpeg",
+    image: "/images/Accesorios/pava-plegable.png",
     options: ["Plegable", "Hasta 0.6L"],
   },
   {
